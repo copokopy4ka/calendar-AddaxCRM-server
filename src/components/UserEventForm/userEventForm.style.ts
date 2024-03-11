@@ -265,3 +265,10 @@ export const CancelSelection = styled('button', {
 export const LabelItemText = styled('div', {
   maxWidth: '16vw',
 });
+
+export const NoLabelsText = styled('div', {
+  color: '#999999',
+  textAlign: 'center',
+  marginTop: '60px',
+  lineHeight: '1.4',
+});

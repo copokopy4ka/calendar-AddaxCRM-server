@@ -24,6 +24,7 @@ import {
   LabelItem,
   LabelItemText,
   LabelsListWrapper,
+  NoLabelsText,
   SelectLabelsTitle,
   SelectedLabelsItem,
   SelectedLabelsWrapper,
@@ -144,22 +145,26 @@ export const UserEventForm: FC<UserEventFormProps> = ({
           <div>
             <SelectLabelsTitle>Select Labels</SelectLabelsTitle>
             <LabelsListWrapper>
-              {allLabels.map(({ color, id, text }) => (
-                <LabelItem
-                  key={id}
-                  onClick={() => handleAddLabel(id)}
-                  className={clsx({ selected: selectedLabels.includes(id) })}
-                >
-                  <ColorBox className={clsx('item-color-box')} style={{ background: color }}>
-                    <CancelSelection
-                      onClick={() => handleCancelLabelSelection(id)}
-                      type='button'
-                      className={clsx('cancel-selection')}
-                    />
-                  </ColorBox>
-                  <LabelItemText style={{ color: color }}>{text}</LabelItemText>
-                </LabelItem>
-              ))}
+              {allLabels.length > 0 ? (
+                allLabels.map(({ color, id, text }) => (
+                  <LabelItem
+                    key={id}
+                    onClick={() => handleAddLabel(id)}
+                    className={clsx({ selected: selectedLabels.includes(id) })}
+                  >
+                    <ColorBox className={clsx('item-color-box')} style={{ background: color }}>
+                      <CancelSelection
+                        onClick={() => handleCancelLabelSelection(id)}
+                        type='button'
+                        className={clsx('cancel-selection')}
+                      />
+                    </ColorBox>
+                    <LabelItemText style={{ color: color }}>{text}</LabelItemText>
+                  </LabelItem>
+                ))
+              ) : (
+                <NoLabelsText>No created labels yet. To add label, You should create one first</NoLabelsText>
+              )}
             </LabelsListWrapper>
           </div>
         </FieldsWrapper>
