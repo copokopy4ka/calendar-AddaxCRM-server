@@ -8,7 +8,7 @@ This is the 'Calendar' project, a web application designed to help users manage 
 
 - Interactive calendar view
 - Add, edit, and delete tasks
-- Create ans edit colored labels for tasks
+- Create and edit colored labels for tasks
 - Replace tasks in the calendar greed
 - Search tasks by text or filter them by labels
 - Download or upload calendar data as .json
